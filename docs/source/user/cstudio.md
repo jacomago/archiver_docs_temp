@@ -4,7 +4,7 @@
 support for the EPICS Archiver Appliance as a data source for the
 databrowser.
 
-### Configuring CS-Studio
+## Configuring CS-Studio
 
 CS-Studio communicates with the appliance using the
 [PB/HTTP](../developer/pb_pbraw) protocol. The databrowser can be configured to
