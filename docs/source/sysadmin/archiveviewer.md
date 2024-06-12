@@ -1,6 +1,4 @@
-# ArchiveViewer Integration
-
-## Retrieving data using the ArchiveViewer
+# Retrieving data using the ArchiveViewer
 
 The EPICS Archiver Appliance comes with a client plugin for the
 ArchiveViewer that enables the user to retrieve and display data in the
