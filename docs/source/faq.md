@@ -1,8 +1,5 @@
----
-title: EPICS Archiver Appliance - FAQ
-viewport: width=device-width, initial-scale=1
----
 
+# FAQ
 
 ::: container
 1.  <div>

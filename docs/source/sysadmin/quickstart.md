@@ -1,8 +1,4 @@
----
-title: EPICS Archiver Appliance \-- Quickstart
-viewport: width=device-width, initial-scale=1
----
-
+# Quick Start Guide
 
 :::::::: container
 ### Quickstart Guide

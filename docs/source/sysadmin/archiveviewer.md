@@ -1,7 +1,4 @@
----
-title: EPICS Archiver Appliance - ArchiveViewer Integration
-viewport: width=device-width, initial-scale=1
----
+# ArchiveViewer Integration
 
 
 :::: container

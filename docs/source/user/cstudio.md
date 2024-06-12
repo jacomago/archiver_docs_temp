@@ -1,7 +1,4 @@
----
-title: EPICS Archiver Appliance - CS Studio Integration
-viewport: width=device-width, initial-scale=1
----
+# CS Studio Integration
 
 
 :::: container

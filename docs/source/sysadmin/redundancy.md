@@ -1,7 +1,4 @@
----
-title: EPICS Archiver Appliance - Failover support
-viewport: width=device-width, initial-scale=1
----
+# Failover support
 
 
 :::: container

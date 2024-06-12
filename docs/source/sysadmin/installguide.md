@@ -1,7 +1,4 @@
----
-title: EPICS Archiver Appliance - Install Guide
-viewport: width=device-width, initial-scale=1
----
+# Install Guide
 
 
 ::::::::::::::::: container

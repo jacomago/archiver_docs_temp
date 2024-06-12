@@ -1,7 +1,4 @@
----
-title: Using SQLite as a configuration database
-viewport: width=device-width, initial-scale=1
----
+# Using SQLite as a configuration database
 
 
 ::::: container

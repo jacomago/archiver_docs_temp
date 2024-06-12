@@ -1,7 +1,4 @@
----
-title: EPICS Archiver Appliance - License
-viewport: width=device-width, initial-scale=1
----
+# License
 
 
 ::: container

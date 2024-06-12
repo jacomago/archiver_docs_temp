@@ -1,9 +1,4 @@
----
-title: EPICS Archiver Appliance - Making simple site-specific content
-  changes
-viewport: width=device-width, initial-scale=1
----
-
+# Making simple site-specific content changes
 
 :::::: container
 ::::: section

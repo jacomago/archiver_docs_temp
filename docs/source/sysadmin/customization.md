@@ -1,7 +1,4 @@
----
-title: EPICS Archiver Appliance - Customization
-viewport: width=device-width, initial-scale=1
----
+# Customization
 
 
 ::::::::::::::: container

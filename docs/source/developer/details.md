@@ -1,8 +1,4 @@
----
-title: EPICS Archiver Appliance - Details
-viewport: width=device-width, initial-scale=1
----
-
+# Details
 
 ::::::::::::::: container
 ::: {#intro}

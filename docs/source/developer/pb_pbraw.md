@@ -1,9 +1,4 @@
----
-title: EPICS Archiver Appliance - The .pb file format and the .pbraw
-  binary protocol
-viewport: width=device-width, initial-scale=1
----
-
+# The .pb file format and the .pbraw binary protocol
 
 :::::::: container
 :::::: section

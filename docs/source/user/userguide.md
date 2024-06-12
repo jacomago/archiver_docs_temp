@@ -1,7 +1,4 @@
----
-title: EPICS Archiver Appliance - User guide
-viewport: width=device-width, initial-scale=1
----
+# User guide
 
 
 :::::::::::::::: container

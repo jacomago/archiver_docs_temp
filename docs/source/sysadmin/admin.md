@@ -1,8 +1,4 @@
----
-lang: en
-title: EPICS Archiver Appliance - Administration Guide
-viewport: width=device-width, initial-scale=1
----
+# Administration Guide
 
 ::::: container-fluid
 ::: navbar-header
