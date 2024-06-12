@@ -63,7 +63,7 @@ extensible for other distributions.
         The properties in this file are used to control some of the
         other customizations of the archiver appliance.
 
-    ``` bash_output
+    ``` bash
     [ epicsarchiverap ]$ ls -ltr src/sitespecific/
     total 0
     drwxr-xr-x 3 mshankar cd 28 Jun 21 10:40 tests

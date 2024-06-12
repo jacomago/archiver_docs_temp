@@ -13,7 +13,7 @@ consider using SQLite as a configuration database.
 1.  Copy the SQLite JDBC from <https://github.com/xerial/sqlite-jdbc> to
     the `${TOMCAT_HOME}/lib` folder.
 
-    ``` bash_output
+    ``` bash
     $ cd $TOMCAT_HOME/lib
     $ ls sqlite-jdbc-3.39.3.0.jar
     sqlite-jdbc-3.39.3.0.jar
@@ -21,7 +21,7 @@ consider using SQLite as a configuration database.
 
 2.  Configure a connection pool using SQLite in the Tomcat context.xml
 
-    ``` bash_output
+    ``` bash
     $ cd $TOMCAT_HOME/conf
     $ cat context.xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -51,7 +51,7 @@ consider using SQLite as a configuration database.
     3.  If more than one connection tries to write to the DB at the same
         time, we\'d see exceptions of the following nature
 
-        ``` bash_output
+        ``` bash
         ERROR org.epics.archiverappliance.config.DefaultConfigService  - Exception persisting pvTypeInfo for pv ...
         java.io.IOException: org.sqlite.SQLiteException: [SQLITE_BUSY] The database file is locked (database is locked)
         ```
@@ -60,7 +60,7 @@ consider using SQLite as a configuration database.
     `install/archappl_sqlite.sql` SQL script shipped as part of the
     `mgmt.war`
 
-    ``` bash_output
+    ``` bash
     $ cd /archappl/config/
     $ sqlite3 --init ~/unzipped_mgmt_war/install/archappl_sqlite.sql archappl.sqlite
     -- Loading resources from install/archappl_sqlite.sql

@@ -26,7 +26,7 @@ Here are the steps to get started quickly.
 1.  Make sure you have a recent version of JDK by running
     `java -version`. You should see something like so
 
-    ``` bash_output
+    ``` bash
     [ quickstart_test ]$ java -version
     openjdk version "16" 2021-03-16
     OpenJDK Runtime Environment (build 16+36-2231)
@@ -40,7 +40,7 @@ Here are the steps to get started quickly.
 3.  Download a recent version of Tomcat 9.x. into the same folder. You
     should now have two files in this folder like so
 
-    ``` bash_output
+    ``` bash
     [ quickstart_test ]$ ls -l
     total 160996
     -rw-r--r-- 1 mshankar cd  10851264 Nov 13 08:08 apache-tomcat-9.0.20.tar.gz
@@ -51,7 +51,7 @@ Here are the steps to get started quickly.
 4.  Untar the `archappl_vx.x.x.tar.gz`. This should untar into 4 WAR
     files and a bash script like so
 
-    ``` bash_output
+    ``` bash
     [ quickstart_test ]$ tar zxf archappl_v0.0.1_SNAPSHOT_12-November-2019T21-10-12.tar.gz
     [ quickstart_test ]$ ls -l
     total 312440
@@ -73,7 +73,7 @@ Here are the steps to get started quickly.
 
 5.  Run the script like so
 
-    ``` bash_output
+    ``` bash
     [ quickstart_test ]$ ./quickstart.sh apache-tomcat-9.0.20.tar.gz
     ```
 
@@ -83,7 +83,7 @@ Here are the steps to get started quickly.
     ` All components in this appliance have started up. We should be ready to start accepting UI requests`{.sample}
     like so
 
-    ``` bash_output
+    ``` bash
     ... INFO  config.org.epics.archiverappliance.config.DefaultConfigService  - Start complete for webapp ENGINE
     ... INFO  config.org.epics.archiverappliance.config.DefaultConfigService  - Start complete for webapp ETL
     ... INFO  config.org.epics.archiverappliance.config.DefaultConfigService  - Start complete for webapp RETRIEVAL

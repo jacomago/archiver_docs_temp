@@ -110,7 +110,7 @@ appliances in the cluster. The details of the file are outlined in the
 [ConfigService](api/org/epics/archiverappliance/config/ConfigService.html#ARCHAPPL_APPLIANCES)
 javadoc. A sample `appliances.xml` with two appliances looks like
 
-``` bash_output
+``` bash
 <appliances>
    <appliance>
      <identity>appliance0</identity>
@@ -266,7 +266,7 @@ Installing Tomcat consists of
         to 8080. Change this to the port used by the `mgmt` webapp for
         this appliance, in this example, 17665.
 
-        ``` bash_output
+        ``` bash
         <Connector connectionTimeout="20000" port="808017665" protocol="HTTP/1.1" redirectPort="8443"/>
         ```
 
@@ -281,7 +281,7 @@ Installing Tomcat consists of
     exceptions and errors with one exception - log messages logged to
     the `config` namespace are logged at INFO level.
 
-    ``` bash_output
+    ``` bash
     <Configuration>
        <Appenders>
             <Console name="STDOUT" target="SYSTEM_OUT">
@@ -306,7 +306,7 @@ Installing Tomcat consists of
     [Nagios](http://www.nagios.org/) or
     [Hyperic](http://www.hyperic.com/).
 
-    ``` bash_output
+    ``` bash
     [ bin ]$ tar zxf commons-daemon-native.tar.gz
     [ bin ]$ cd commons-daemon-1.1.0-native-src
     [ commons-daemon-1.1.0-native-src ]$ cd unix/
@@ -362,7 +362,7 @@ appliance,
     into your Tomcat\'s `lib` folder. In addition to the log4j2.xml
     file, you should have a `mysql-connector-java-XXX.jar` as show here.
 
-    ``` bash_output
+    ``` bash
     [ lib ]$ ls -ltra
     ...
     -rw-r--r-- 1 mshankar cd     505 Nov 13 10:29 log4j2.xml
@@ -373,7 +373,7 @@ appliance,
     the Tomcat management UI or directly add an entry in
     `conf/context.xml` like so
 
-    ``` bash_output
+    ``` bash
     <Resource   name="jdbc/archappl"
           auth="Container"
           type="javax.sql.DataSource"
@@ -420,7 +420,7 @@ thereof, you\'ll need to set up three stages of storage. A useful way to
 do this is to create a folder called `/arch` and then create soft links
 in this folder to the actual physical location. For example,
 
-``` bash_output
+``` bash
 [ arch ]$ ls -ltra
 total 32
 lrwxrwxrwx    1 archappl archappl      8 Jun 21  2013 sts -> /dev/shm
@@ -466,7 +466,7 @@ and then run the `deployMultipleTomcats.py` script passing in one
 argument that identifies the parent folder of the individual Tomcat
 containers.
 
-``` bash_output
+``` bash
 [ single_machine_install ]$ export TOMCAT_HOME=/arch/single_machine_install/tomcats/apache-tomcat-9.0.20
 [ single_machine_install ]$ export ARCHAPPL_APPLIANCES=/arch/single_machine_install/sample_appliances.xml
 [ single_machine_install ]$ export ARCHAPPL_MYIDENTITY=appliance0
