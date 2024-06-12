@@ -59,7 +59,6 @@ To check the status of a PV.
     particular request. This may change in the future based on user
     feedback.
 
-
 ## Retrieving data using CS-Studio, Archive Viewer and Matlab
 
 1. To retrieve data using the CS-Studio, see the
@@ -68,7 +67,7 @@ To check the status of a PV.
 3. To retrieve data using Matlab, see the [Matlab](./matlab)
     section.
 
-## Retrieving data using other tools {#retrieval_url_formula}
+## Retrieving data using other tools
 
 The EPICS Archiver Appliance supports data retrieval in multiple
 formats/MIME types. These are some of the few formats supported today;
@@ -184,7 +183,7 @@ show()
 
 ![image](../images/chaco_plot.png)
 
-### Processing of data {#post_processing}
+## Processing of data
 
 The EPICS archiver appliance has limited support for performing some
 processing on the data during data retrieval. For most scientific data
@@ -203,8 +202,7 @@ before returning it to the client. To plot `test:pv:123` with the
 `mean_3600` operator in the ArchiveViewer, plot
 `mean_3600(test:pv:123)`.
 
-The EPICS archiver appliance uses [Apache Commons
-Math](http://commons.apache.org/proper/commons-math/) for its data
+The EPICS archiver appliance uses [Apache Commons Math](http://commons.apache.org/proper/commons-math/) for its data
 processing. Many operators bin the data into bins whose sizes are
 specified as part of the operator itself. For example, the `mean_3600`
 operator bins the data into bins that are 3600 seconds wide. The default
@@ -218,32 +216,64 @@ and `S2` belong to the same bin if
 quotient after integer division. Samples belonging to the same bin are
 gathered together and sent thru various statistics operators.
 
-  Operator       Desc
-  -------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  firstSample    Returns the first sample in a bin. This is the default sparsification operator.
-  lastSample     Returns the last sample in a bin.
-  firstFill      Similar to the firstSample operator with the exception that we alter the timestamp to the middle of the bin and copy over the previous bin\'s value if a bin does not have any samples.
-  lastFill       Similar to the firstFill operator with the exception that we use the last sample in the bin.
-  mean           Returns the average value of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getMean()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMean())
-  min            Returns the minimum value in a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getMin()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMin())
-  max            Returns the maximum value in a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getMax()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMax())
-  count          Returns the number of samples in a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getN()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getN())
-  ncount         Returns the total number of samples in a selected time span.
-  nth            Returns every n-th value..
-  median         Returns the median value of a bin. This is computed using [DescriptiveStatistics](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html) and is [DescriptiveStatistics.getPercentile(50)](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html#getPercentile(double))
-  std            Returns the standard deviation of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getStandardDeviation()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getStandardDeviation())
-  jitter         Returns the jitter (the standard deviation divided by the mean) of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getStandardDeviation()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getStandardDeviation())/[SummaryStatistics.getMean()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMean())
-  ignoreflyers   Ignores data that is more than the specified amount of std deviation from the mean in the bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html). It takes two arguments, the binning interval and the number of standard deviations (by default, 3.0). It filters the data and returns only those values which satisfy `Math.abs(val - SummaryStatistics.getMean()) <= numDeviations*SummaryStatistics.getStandardDeviation()`{.sample}
-  flyers         Opposite of ignoreflyers - only returns data that is more than the specified amount of std deviation from the mean in the bin.
-  variance       Returns the variance of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getVariance()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getVariance())
-  popvariance    Returns the population variance of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getPopulationVariance()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getPopulationVariance())
-  kurtosis       Returns the kurtosis of a bin - Kurtosis is a measure of the peakedness. This is computed using [DescriptiveStatistics](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html) and is [DescriptiveStatistics.getKurtosis()](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html#getKurtosis())
-  skewness       Returns the skewness of a bin - Skewness is a measure of the asymmetry. This is computed using [DescriptiveStatistics](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html) and is [DescriptiveStatistics.getSkewness()](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html#getSkewness())
-:::
+  firstSample
+  :   Returns the first sample in a bin. This is the default sparsification operator.
 
-::: {#score_masar .section}
+  lastSample
+  :    Returns the last sample in a bin.
 
-### Save/Restore API
+  firstFill
+  :  Similar to the firstSample operator with the exception that we alter the timestamp to the middle of the bin and copy over the previous bin\'s value if a bin does not have any samples.
+  
+  lastFill  
+  : Similar to the firstFill operator with the exception that we use the last sample in the bin.
+
+  mean
+  : Returns the average value of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getMean()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMean())
+
+  min
+  :   Returns the minimum value in a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getMin()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMin())
+
+  max
+  :   Returns the maximum value in a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getMax()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMax())
+
+  count
+  :   Returns the number of samples in a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getN()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getN())
+
+  ncount
+  :  Returns the total number of samples in a selected time span.
+
+  nth
+  :    Returns every n-th value..
+
+  median
+  : Returns the median value of a bin. This is computed using [DescriptiveStatistics](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html) and is [DescriptiveStatistics.getPercentile(50)](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html#getPercentile(double))
+
+  std
+  :   Returns the standard deviation of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getStandardDeviation()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getStandardDeviation())
+
+  jitter
+  : Returns the jitter (the standard deviation divided by the mean) of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getStandardDeviation()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getStandardDeviation())/[SummaryStatistics.getMean()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getMean())
+
+  ignoreflyers
+  : Ignores data that is more than the specified amount of std deviation from the mean in the bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html). It takes two arguments, the binning interval and the number of standard deviations (by default, 3.0). It filters the data and returns only those values which satisfy `Math.abs(val - SummaryStatistics.getMean()) <= numDeviations*SummaryStatistics.getStandardDeviation()`
+
+  flyers
+  :    Opposite of ignoreflyers - only returns data that is more than the specified amount of std deviation from the mean in the bin.
+
+  variance
+  :    Returns the variance of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getVariance()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getVariance())
+
+  popvariance
+  :  Returns the population variance of a bin. This is computed using [SummaryStatistics](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html) and is [SummaryStatistics.getPopulationVariance()](http://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commons/math3/stat/descriptive/SummaryStatistics.html#getPopulationVariance())
+
+  kurtosis
+  :    Returns the kurtosis of a bin - Kurtosis is a measure of the peakedness. This is computed using [DescriptiveStatistics](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html) and is [DescriptiveStatistics.getKurtosis()](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html#getKurtosis())
+
+  skewness
+  :    Returns the skewness of a bin - Skewness is a measure of the asymmetry. This is computed using [DescriptiveStatistics](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html) and is [DescriptiveStatistics.getSkewness()](http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.html#getSkewness())
+
+## Save/Restore API
 
 The EPICS Archiver Appliance has a separate API targeted at getting the
 value of several PV\'s as of a point in time. This is primarily aimed at
@@ -264,6 +294,7 @@ The response is a JSON dict of dicts with the name of the PV as the key.
 For example, here\'s a call asking for the value of a few PV\'s as of
 `2018-10-22T10:40:00.000-07:00`
 
+```bash
     $ curl -H "Content-Type: application/json"  -XPOST -s "http://localhost:17665/retrieval/data/getDataAtTime?at=2018-10-22T10:40:00.000-07:00&includeProxies=true" -d '["VPIO:IN20:111:VRAW", "ROOM:LI30:1:OUTSIDE_TEMP", "YAGS:UND1:1005:Y_BM_CTR", "A_nonexistent_pv" ]'
     {
         "ROOM:LI30:1:OUTSIDE_TEMP": {
@@ -288,11 +319,9 @@ For example, here\'s a call asking for the value of a few PV\'s as of
             "val": 0.008066000000000002
         }
     }
-:::
+```
 
-::: {#Reports .section}
-
-### Reports
+## Reports
 
 The EPICS Archiver Appliance supports a wide variety of reports based on
 static and dynamic information. These reports can also be accessed from
@@ -300,31 +329,31 @@ within scripting languages like python and can be used to facilitate
 automation and integration. Some reports that are currently available
 are
 
-- [PV\'s that may not exist]{.reportitle} - This report lists all the
+- **PV\'s that may not exist** - This report lists all the
     PVs in the cluster that have never connected. PVs whose names have
     typos in them would be included in this report.
-- [Currently disconnected PVs]{.reportitle} - This report lists all
+- **Currently disconnected PVs** - This report lists all
     the PVs in the cluster that have connected in the past but are
     currently disconnected; perhaps because their IOCs have been turned
     off.
-- [Top PVs by event rate]{.reportitle} - These reports contain the PVs
+- **Top PVs by event rate** - These reports contain the PVs
     sorted by their actual event rate (descending).
-- [Top PVs by storage rate]{.reportitle} - These reports contain the
+- **Top PVs by storage rate** - These reports contain the
     PVs sorted by their actual storage rate (descending).
-- [Recently added PVs]{.reportitle} - These reports contain the PVs
+- **Recently added PVs** - These reports contain the PVs
     sorted by the creation timestamp of their PVTypeInfos (descending).
     PVs that were recently added show up first.
-- [Recently modified PVs]{.reportitle} - These reports contain the PVs
+- **Recently modified PVs** - These reports contain the PVs
     sorted by the modification timestamp of their PVTypeInfos
     (descending). PVs that were recently modified show up first.
-- [PVs by lost/regained connections]{.reportitle} - These reports
+- **PVs by lost/regained connections** - These reports
     contain the PVs sorted by the number of times we\'ve
     lost/re-established the CA connection. This can be used to determine
     if an IOC is being overwhelmed (perhaps by all the archiving
     targeted at it).
-- [PVs by last known timestamp]{.reportitle} - These reports contain
+- **PVs by last known timestamp** - These reports contain
     the PVs sorted by the timestamp of the last event received.
-- [PVs by dropped events from incorrect timestamps]{.reportitle} - The
+- **PVs by dropped events from incorrect timestamps** - The
     EPICS archiver appliance discards events that have invalid
     timestamps. These reports contain the PVs sorted by the number of
     events dropped because they had invalid timestamps. Events are
@@ -339,45 +368,33 @@ are
         timestamp of the previous sample.
     4. If the record processing timestamp from the IOC is identical to
         the timestamp of the previous sample.
-- [PVs by dropped events from buffer overflows]{.reportitle} - The
+- **PVs by dropped events from buffer overflows** - The
     EPICS archiver appliance discards events when the sampling buffers
     (as estimated from the sampling period) become full. These reports
     contain the PVs sorted by the number of events dropped because the
     sampling buffers were full.
-:::
 
-::: {#Metrics .section}
-
-### Metrics
+## Metrics
 
 The EPICS Archiver Appliance maintains a wide variety of metrics to
 facilitate in capacity planning and load balancing. These metrics can be
 viewed in the Metrics page; a small subset of these metrics can be
 viewed across the cluster. To view more details about the metrics on a
 particular appliance, click on that appliance in the list view.
-:::
 
-::: {#Storage .section}
-
-### Storage
+## Storage
 
 The EPICS Archiver Appliance supports multiple stages for storing data
 and allows for configuration of data stores on a per PV basis. The
 storage consumed across all PVs can be viewed in the Storage page.
-:::
 
-::: {#Appliances .section}
-
-### Appliances
+## Appliances
 
 The EPICS Archiver Appliance maintains a days worth of CPU/heap usage
 statistics on a per appliance basis. These statistics can be viewed on
 the Appliances page.
-:::
 
-::: {#Integrations .section}
-
-### Integrations
+## Integrations
 
 The EPICS Archiver Appliance supports limited integration with existing
 Channel Archiver installations.
@@ -395,5 +412,3 @@ Channel Archiver installations.
     EPICS Archiver Appliance uses the `archiver.names` method to
     determine the PVs that are hosted by the ChannelArchiver `XML-RPC`
     data server and adds this server as a data source for these PVs.
-:::
-::::::::::::::::
