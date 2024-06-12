@@ -1,16 +1,9 @@
 # Using SQLite as a configuration database
 
-
-::::: container
-:::: section
-### Using SQLite as a configuration database
-
-<div>
-
 For smaller installations with lighter concurrent access, one can
 consider using SQLite as a configuration database.
 
-1.  Copy the SQLite JDBC from <https://github.com/xerial/sqlite-jdbc> to
+1. Copy the SQLite JDBC from <https://github.com/xerial/sqlite-jdbc> to
     the `${TOMCAT_HOME}/lib` folder.
 
     ``` bash
@@ -19,7 +12,7 @@ consider using SQLite as a configuration database.
     sqlite-jdbc-3.39.3.0.jar
     ```
 
-2.  Configure a connection pool using SQLite in the Tomcat context.xml
+2. Configure a connection pool using SQLite in the Tomcat context.xml
 
     ``` bash
     $ cd $TOMCAT_HOME/conf
@@ -41,14 +34,14 @@ consider using SQLite as a configuration database.
      
     ```
 
-    1.  Note that sqlite requires both the DB file and the containing
+    1. Note that sqlite requires both the DB file and the containing
         directory to be writable.
 
-    2.  SQLite does file locking during updates; so we cannot really use
+    2. SQLite does file locking during updates; so we cannot really use
         multiple connections in the connection pool. This requires us
         setting the `maxActive`, `maxIdle` and `maxTotal` to 1.
 
-    3.  If more than one connection tries to write to the DB at the same
+    3. If more than one connection tries to write to the DB at the same
         time, we\'d see exceptions of the following nature
 
         ``` bash
@@ -56,7 +49,7 @@ consider using SQLite as a configuration database.
         java.io.IOException: org.sqlite.SQLiteException: [SQLITE_BUSY] The database file is locked (database is locked)
         ```
 
-3.  Initialize the SQLite database using the
+3. Initialize the SQLite database using the
     `install/archappl_sqlite.sql` SQL script shipped as part of the
     `mgmt.war`
 
@@ -72,11 +65,7 @@ consider using SQLite as a configuration database.
     $ 
     ```
 
-4.  It is recommended to use the SQLite
+4. It is recommended to use the SQLite
     [WAL](https://www.sqlite.org/wal.html) journal mode to improve write
     performance. Using WAL usually implies the presence of a .shm and
     .wal file in addition to the .sqlite file.
-
-</div>
-::::
-:::::
