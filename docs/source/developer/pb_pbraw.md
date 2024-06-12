@@ -17,7 +17,7 @@ The first line in a PB file is a header (`PayloadInfo` PB message) that
 contains some basic information like the PV name, its DBR type and so
 on.
 
-![image](images/pbfile.png){.img-responsive}
+![image](../images/pbfile.png)
 
 As serialized PB messages are binary data; after serialization, newline
 characters are escaped to maintain a \"sample per line\" constraint.
@@ -97,6 +97,6 @@ and [carchivetools](https://github.com/epicsdeb/carchivetools) handle
 the multiple chunks in a seamless fashion and present the data to the
 caller as a single event stream.
 
-![image](images/pbhttp.png){.img-responsive}
+![image](../images/pbhttp.png)
 :::
 ::::::::

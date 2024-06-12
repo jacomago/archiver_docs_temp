@@ -65,7 +65,7 @@ Then run `SyncStaticContentHeadersFooters` using
 
 to generate
 
-![image](images/simple_static_content.png){.img-responsive}
+![image](../images/simple_static_content.png)
 
 </div>
 :::::

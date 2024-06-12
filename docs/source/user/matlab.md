@@ -40,7 +40,7 @@ Here\'s some sample code that is used to get the data for PV
 Here\'s a screenshot of this sample code being executed in a Matlab
 environment.
 
-![image](images/matlab1.png){.img-responsive}
+![image](../images/matlab1.png)
 :::
 
 <div>

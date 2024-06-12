@@ -19,10 +19,10 @@ At a high level, some features are
 
 </div>
 
-For a more detailed description, please see the [Details](details.html)
+For a more detailed description, please see the [Details](developer/details)
 page.
 
-To get started, please see the [Quickstart](quickstart.html) guide.
+To get started, please see the [Quickstart](sysadmin/quickstart) guide.
 
 [Last published on {publish_date}. This project is part of the
 [AccelUtils](http://accelutils.sourceforge.net/) collaboration.]{.small}

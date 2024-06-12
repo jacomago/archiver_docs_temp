@@ -202,7 +202,7 @@ javadoc. A sample `appliances.xml` with two appliances looks like
         cluster.
         ![Using Apache HTTP on `archiver` to load balance data retrieval
         between `appliance0` and
-        `appliance1`.](images/ApacheasLB.png){.img-responsive}
+        `appliance1`.](../images/ApacheasLB.png)
 
         -   Note there are also other load-balancing solutions available
             that load-balance the HTTP protocol that may be more

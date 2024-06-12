@@ -11,7 +11,7 @@ tasks. This UI works best with a recent version of Firefox or Chrome.
 To add a PV to the archiver,
 
 1.  Go to the home page of the archiver appliance.
-    ![image](images/archive_pv.png){.img-responsive}
+    ![image](../images/archive_pv.png)
 2.  Enter any number of PV\'s in the text area (one per line) and click
     on the `Archive` button.
 3.  If you wish to specify the sampling period, then click on the
@@ -57,7 +57,7 @@ To check the status of a PV.
     [GLOB](http://en.wikipedia.org/wiki/Glob_%28programming%29)
     expressions like `XCOR*` and the archiver appliance will then
     display the status of all PV\'s that match the GLOB expression.
-    ![image](images/check_status_glob.png){.img-responsive}
+    ![image](../images/check_status_glob.png)
 
     Note that the number of matched PV\'s can be quite large; for now,
     no attempt is made to restrict the number of entries in this
@@ -198,7 +198,7 @@ Chaco to render a plot.
     xscale('time')
     show()
 
-![image](images/chaco_plot.png){.img-responsive}
+![image](../images/chaco_plot.png)
 :::::
 
 ::: section
@@ -397,7 +397,7 @@ Channel Archiver installations.
 -   To import ChannelArchiver `XML` configuration files, click on the
     `Choose Files` button, select any number of ChannelArchiver `XML`
     configuration files and press `Upload`.
-    ![image](images/importCAConfig.png){.img-responsive}
+    ![image](../images/importCAConfig.png)
 
     The `DTD` for the ChannelArchiver `XML` file can be found in the
     ChannelArchiver documentation or in the ChannelArchiver source
