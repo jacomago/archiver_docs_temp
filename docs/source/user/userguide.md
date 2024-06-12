@@ -199,9 +199,7 @@ Chaco to render a plot.
     show()
 
 ![image](../images/chaco_plot.png)
-:::::
-
-::: section
+::
 ### Processing of data {#post_processing}
 
 The EPICS archiver appliance has limited support for performing some
