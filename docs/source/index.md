@@ -37,6 +37,7 @@ license.md
 user/cstudio.md
 user/matlab.md
 user/userguide.md
+user/archiveviewer.md
 ```
 
 ```{toctree}
@@ -44,7 +45,6 @@ user/userguide.md
 :caption: Sysadmin
 
 sysadmin/admin.md
-sysadmin/archiveviewer.md
 sysadmin/customization.md
 sysadmin/installguide.md
 sysadmin/quickstart.md
