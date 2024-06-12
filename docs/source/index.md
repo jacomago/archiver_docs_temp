@@ -4,7 +4,6 @@ The EPICS Archiver Appliance is an implementation of an archiver for
 [EPICS](http://www.aps.anl.gov/epics/index.php) control systems that
 aims to archive millions of PVs.
 
-
 At a high level, some features are
 
 - Ability to cluster appliances and to scale by adding appliances to
