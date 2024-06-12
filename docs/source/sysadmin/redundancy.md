@@ -1,31 +1,26 @@
-# Failover support
-
-
-:::: container
-::: section
-### Redundancy in the EPICS Archiver Appliance
+# Redundancy in the EPICS Archiver Appliance
 
 The EPICS Archiver Appliance has limited support for archiving the same
 PV in multiple clusters and merging in the data from both appliances
 during data retrieval. This feature allows for a some redundancy when
 archiving a small set of critical PVs. At a high level
 
--   Archive the same PV in two independent clusters.
-    -   The two clusters need not have the same policy. For example, you
+- Archive the same PV in two independent clusters.
+  - The two clusters need not have the same policy. For example, you
         can designate one cluster the **primary** cluster and the other
         one the **secondary** cluster
-    -   The primary cluster can archive the PV using your usual policies
+  - The primary cluster can archive the PV using your usual policies
         while the secondary can store data for a much smaller timeframe.
--   Configure one of the clusters ( for performance reasons, the smaller
+- Configure one of the clusters ( for performance reasons, the smaller
     of the two, most likely the secondary ) to proxy the other one.
-    -   When creating the proxy, add a param `mergeDuringRetrieval`. For
+  - When creating the proxy, add a param `mergeDuringRetrieval`. For
         example, add a *External EPICS Archiver Appliance* proxy with a
         URL that looks like so
         `http://archapp.slac.stanford.edu/retrieval?mergeDuringRetrieval=true`
--   Periodically, if needed, merge in the data manually from the
+- Periodically, if needed, merge in the data manually from the
     secondary cluster to the primary using the `mergeInData` BPL.
 
-#### Case study
+## Case study
 
 In an ideal world, to achive redundancy when archiving PV\'s, we\'d have
 multiple large identical independent clusters archiving the same set of
@@ -60,5 +55,3 @@ cluster to the **primary** cluster using the `mergeInData` BPL. This
 requires data the PV to be paused in the **primary** cluster while the
 merge is happening. The `mergeInData` picks up all data from the
 **secondary** cluster and merges it into the **primary** cluster.
-:::
-::::
