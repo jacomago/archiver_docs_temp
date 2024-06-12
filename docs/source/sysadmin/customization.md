@@ -257,7 +257,7 @@ support for [alternate type systems](api/org/epics/archiverappliance/config/Type
 contact the collaboration if you\'d want to consider using alternate
 serialization mechanisms.
 
-### ConfigService
+## ConfigService
 
 All of the configuration in the archiver appliance is handled thru
 implementations of the
